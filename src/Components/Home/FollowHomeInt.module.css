@@ -1,0 +1,8 @@
+.pDiv{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.pDiv>div>img{
+    height:428px;
+    width:392px;
+}
