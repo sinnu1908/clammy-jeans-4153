@@ -1,0 +1,15 @@
+
+ .cDiv>img{
+    height:190px;
+    width:190px;
+}
+
+.pDiv{
+    display:grid;
+    grid-template-columns: repeat(6,1fr);
+} 
+
+.cPriceDiv{
+    display:grid;
+   
+}
