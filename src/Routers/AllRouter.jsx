@@ -10,6 +10,8 @@ import Furnishing from "../Components/Furnishing/Furnishing"
 import KitchendAndDining from "../Components/KitchenAndDining/KitchendAndDining"
 import SingleProdPage from "../Components/Furniture/SingleProdPage";
 import PageNotFound from "../Components/PageNotFound/PageNotFound";
+import Login from "../Forms/Login";
+import Register from "../Forms/Register";
 
 
 
@@ -25,7 +27,9 @@ function AllRoutes(){
     <Route path="/homeDecor" element={<HomeDecor/>}/>
     <Route path="/furnishing" element={<Furnishing/>}/>
     <Route path="/kitchenAndDining" element={<KitchendAndDining/>}/>
-    <Route path="/furniture/:id" element={<SingleProdPage />}/>
+    <Route path="/furnitureSofas/:id" element={<SingleProdPage />}/>
+    <Route path="/login" element={<Login/>}/>
+    <Route path="/register" element={<Register />}/>
     <Route path="*" element={<PageNotFound />} />
   </Routes>
     

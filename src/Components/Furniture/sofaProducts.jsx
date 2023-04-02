@@ -1,5 +1,6 @@
 import styled from "./sofaProducts.module.css";
-
+import { Link } from "react-router-dom";
+import Stars from "./Stars";
 
 
 const SofaProducts = ({sofaData}) => {
@@ -8,10 +9,10 @@ const SofaProducts = ({sofaData}) => {
     <div id={styled.container}>
     
 {sofaData.map((item)=>{
-    const {image,name,brandName,totalPrice,discount,shippingDay}=item;
-    const {overallRating,numberOfRating}=item.rating;
+    const {image,name,brandName,totalPrice,discount,shippingDay,id,rating}=item;
+    
     let discountAmt=totalPrice-Math.floor((totalPrice)-(totalPrice*discount/100));
-return <div key={item.id}>
+return <Link to={`/furnitureSofas/${id}`}><div key={item.id}>
     <img className={styled.image} src={image} alt={name} />
     <p className={styled.name}>{name}</p>
     <p className={styled.brandName}>{brandName}</p>
@@ -24,8 +25,13 @@ return <div key={item.id}>
     
     <p className="save">You Save ₹{(discountAmt).toLocaleString("en-US")} <span className={styled.discount}>({discount}% off)</span></p>
 
+    {/* Stars Rating */}
+
+     <Stars stars={rating?.overallRating} reviews={rating?.numberOfRating}/>
+
+
     <p className={styled.shipping}>Express Shipping in <span>{shippingDay} Day</span></p>
-</div>
+</div></Link>
 })}
 
 </div>
@@ -34,5 +40,7 @@ return <div key={item.id}>
     
   )
 }
+
+
 
 export default SofaProducts
