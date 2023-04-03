@@ -1,19 +1,26 @@
-import styled from "./sofaProducts.module.css";
-import { Link } from "react-router-dom";
-import Stars from "./Stars";
 
 
-const SofaProducts = ({sofaData}) => {
-    console.log(sofaData)
+import styled from "./cart.module.css";
+import Stars from "../Components/Furniture/Stars"
+import {useState} from "react"
+
+
+
+const Cart = ({cartData}) => {
+  const [myCartData,setmyCartData]=useState([])
+
+  
+setmyCartData([...myCartData,cartData])
+
   return (
+
     <div id={styled.container}>
     
-{sofaData.map((item)=>{
+{myCartData.map((item)=>{
     const {image,name,brandName,totalPrice,discount,shippingDay,id,rating}=item;
     
     let discountAmt=totalPrice-Math.floor((totalPrice)-(totalPrice*discount/100));
-return <Link to={`/furnitureSofas/${id}`}>
-<div key={item.id}>
+return <div key={item.id}>
     <img className={styled.image} src={image} alt={name} />
     <p className={styled.name}>{name}</p>
     <p className={styled.brandName}>{brandName}</p>
@@ -32,16 +39,11 @@ return <Link to={`/furnitureSofas/${id}`}>
 
 <p className={styled.shipping}>Express Shipping in <span className={styled.day}>{shippingDay} Day</span></p>
 </div>
-</Link>
+
 })}
 
 </div>
-
-
-    
   )
 }
 
-
-
-export default SofaProducts
+export default Cart;

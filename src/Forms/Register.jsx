@@ -118,9 +118,6 @@ const postUser=(obj)=>{
    })
 }
 
-if(flag){
-    <Navigate to="/login"/>
-}
 
   return (<>
 

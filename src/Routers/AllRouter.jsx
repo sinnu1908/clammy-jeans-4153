@@ -1,7 +1,7 @@
 
 
 import {Routes,Route} from "react-router-dom";
-
+import PrivateRoutes from "./PrivateRoute";
 import Home from "../Components/Home/Home"
 import Furniture from "../Components/Furniture/Furniture";
 import Mattresses from "../Components/Mattresses/Mattresses";
@@ -12,7 +12,7 @@ import SingleProdPage from "../Components/Furniture/SingleProdPage";
 import PageNotFound from "../Components/PageNotFound/PageNotFound";
 import Login from "../Forms/Login";
 import Register from "../Forms/Register";
-
+import Cart from "../Cart/cart";
 
 
 function AllRoutes(){
@@ -31,6 +31,9 @@ function AllRoutes(){
     <Route path="/login" element={<Login/>}/>
     <Route path="/register" element={<Register />}/>
     <Route path="*" element={<PageNotFound />} />
+
+    <Route path="/cart" element={<PrivateRoutes><Cart /></PrivateRoutes>}/>
+
   </Routes>
     
     </>)

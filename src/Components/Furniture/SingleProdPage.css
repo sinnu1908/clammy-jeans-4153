@@ -2,13 +2,15 @@
   margin:0;
   padding:0;
 } */
-.container {
-    padding: 9rem 0;
-  }
+
+.container{
+  width: 90%;
+  margin:auto;
+}
 
   .grid-grid-two-column{
     display: grid;
-    grid-template-columns: 40% 50%;
+    grid-template-columns: 45% 50%;
 
   }
   .product_data {
@@ -34,9 +36,10 @@
         .warranty-icon {
           background-color: rgba(220, 220, 220, 0.5);
           border-radius: 50%;
-          width: 2rem;
-          height: 2rem;
+          width: 2.5rem;
+          height: 2.5rem;
           padding: 0.6rem;
+          margin:10px 0;
         }
         p {
           font-size: 1rem;
@@ -45,6 +48,7 @@
      
     .product-data-price {
       font-weight: bold;
+      margin:10px 0;
     }
     .product-data-real-price {
       color: green;
@@ -73,6 +77,30 @@
       justify-content: center;
       align-items: center;
     }
+
+
+.buy, .addToCart{
+  background-color: orange;
+  border-style: none;
+  padding:15px 25px;
+  font-size: 18px;
+  color:white;
+  
+}
+
+.buy{
+  margin-right: 20px;;
+}
+
+.buy:hover, .addToCart:hover{
+  cursor: pointer;
+}
+.product-data-price-product-data-real-price{
+  color:limegreen;
+  font-weight: 700;
+  font-size:18px;
+}
+
     /* @media (max-width: ${({ theme }) => theme.media.mobile}) {
       padding: 0 2.4rem;
     } */

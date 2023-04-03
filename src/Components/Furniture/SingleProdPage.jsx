@@ -7,6 +7,12 @@ import {TbTruckDelivery,TbReplace } from "react-icons/tb";
 import {MdSecurity} from "react-icons/md"
 import "./SingleProdPage.css";
 import Stars from "./Stars";
+import Cart from "../../Cart/cart";
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import { AuthenticationCon } from "../../Context/AuthContext";
+
+
 
 
 let url="http://localhost:9090/sofas"
@@ -14,7 +20,13 @@ const SingleProdPage = () => {
 
   const {id}=useParams();
 
+   const {isAuth}=useContext(AuthenticationCon);
+  
+
+
 const [mydata,setmydata]=useState({});
+
+
 
 const getData=()=>{
   fetch(`${url}/${id}`)
@@ -37,7 +49,19 @@ getData()
 
 const {image,name,brandName,totalPrice,discount,shippingDay}=mydata;
 
+const handleBuy=()=>{
 
+ 
+}
+
+
+const addToCart=()=>{
+
+
+<Cart cartData={mydata}/>
+alert("Product added successfully")
+  
+}
 
 
   return (
@@ -55,7 +79,9 @@ const {image,name,brandName,totalPrice,discount,shippingDay}=mydata;
 
        <div className="product-data">
 
-       <h2>{name}</h2>
+       <h1>{name}</h1>
+
+       <h5 style={{margin:"10px 0"}}>BrandName: {brandName} </h5>
 
        {/* <p>{mydata?.rating?.overallRating}</p>
        <p>{mydata?.rating?.numberOfRating}</p> */}
@@ -66,11 +92,13 @@ const {image,name,brandName,totalPrice,discount,shippingDay}=mydata;
         MRP : ₹{(totalPrice)}
        </p>
 
-       <p className="product-data-price product-data-real-price">
+       <p className="product-data-price-product-data-real-price">
         Discount Price : ₹{Math.floor((totalPrice)-(totalPrice*discount/100)).toLocaleString("en-US")}
        </p>
 
        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,</p>
+
+       <p>Express Delivery within {shippingDay}</p>
 
        <div className="product-data-warranty">
 
@@ -92,17 +120,28 @@ const {image,name,brandName,totalPrice,discount,shippingDay}=mydata;
        <div className="product-warranty-data">
         <MdSecurity className="warranty-icon" />
         <p>1 Year Warranty</p>
-       </div>
-       </div>
-
-
-
-
+        
        </div>
 
+     
+       </div>
+
+       <div className="button">
+        <button className="buy" onClick={handleBuy}>BUY NOW</button>
+       <button className="addToCart" onClick={addToCart}>ADD TO CART</button>
+       </div>
+
+
        </div>
 
        </div>
+
+
+
+
+       </div>
+       
+       
     </>
   )
 }

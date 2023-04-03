@@ -4,8 +4,11 @@ import {FaStar,FaStarHalfAlt} from "react-icons/fa";
 import {AiOutlineStar} from "react-icons/ai";
 
 const icons={
-    fontSize:"1rem",
+    fontSize:"16px",
      color:"orange",
+     marginRight:"3px",
+     
+    
 }
 
 
@@ -29,35 +32,13 @@ const Stars = ({stars,reviews}) => {
     })
 
 
-    // const Wrapper=styled.section`
-    // .icon-style{
-    //     display:flex;
-    //     gap:0.2rem;
-    //     align-items:center;
-    //     justify-content:flex-start;
-
-    // .icon{
-    //     font-size:2rem;
-    //     color:orange;
-    // }
-
-    // .empty-icon{
-    //     font-size:2.6rem;
-    // }
-    // p{
-    //     margin:0;
-    //     padding-left:1.2rem;
-    // }
-    
-    // }`
-
-
   return (
 
     <div>
 
     {ratings}
-    <p>({NumReviews} customers reviewes)</p>
+
+    <span style={{color:"teal", fontSize:"14px"}}>({NumReviews} customers reviewes)</span>
 
     </div>
   )
